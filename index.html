@@ -5,32 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conway's Game of Life</title>
-    <style>
-      body {
-        display: flex;
-      }
-      input[type="checkbox"] {
-        margin: 0;
-        padding: 0;
-        display:block;
-        height:12px;
-        overflow:hidden
-      }
-      table {
-        border: 1px solid black;
-      }
-      button {
-        margin: 10px;
-      }
-      #left {
-        width: 15%;
-        margin: 200px 5px;
-      }
-      #right {
-        width: 65%;
-        margin: 5px 10px 5px 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="main.css" />
+    <script src="bundle.js" defer></script>
   </head>
   <body>
     <div id="left">
@@ -52,34 +28,8 @@
       <h1>Conway's Game of Life</h1>
       <div id="grid"></div>
       <button>Start</button>
-      <button>Clear</button>
-      <button>Randomise (Populate 30% of the grid)</button>
+      <button id="clear">Clear</button>
+      <button id="randomise">Randomise (Populate 30% of the grid)</button>
     </div>
-    <script>
-      // Create the table element
-      let table = document.createElement("table");
-
-      // Use a for loop to create the rows
-      for (let i = 0; i < 35; i++) {
-        let row = document.createElement("tr");
-
-        // Use another for loop to create the columns (checkboxes)
-        for (let j = 0; j < 68; j++) {
-          let cell = document.createElement("td");
-          let checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-
-          // Append the checkbox to the cell, and the cell to the row
-          cell.append(checkbox);
-          row.append(cell);
-        }
-
-        // Append the row to the table
-        table.append(row);
-      }
-
-      // Append the table to the document
-      document.querySelector("#grid").append(table);
-    </script>
   </body>
 </html>
