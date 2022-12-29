@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="bundle.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conway's Game of Life</title>
+    <style>
+      body {
+        display: flex;
+      }
+      input[type="checkbox"] {
+        margin: 0;
+        padding: 0;
+        display:block;
+        height:12px;
+        overflow:hidden
+      }
+      table {
+        border: 1px solid black;
+      }
+      button {
+        margin: 10px;
+      }
+      #left {
+        width: 15%;
+        margin: 200px 5px;
+      }
+      #right {
+        width: 65%;
+        margin: 5px 10px 5px 10px;
+      }
+    </style>
   </head>
   <body>
+    <div id="left">
+      <h3>Rules</h3>
+      <p>
+        These rules, which compare the behavior of the automaton to real life,
+        can be condensed into the following:
+      </p>
+      <ol>
+        <li>Any live cell with two or three live neighbours survives.</li>
+        <li>Any dead cell with three live neighbours becomes a live cell.</li>
+        <li>
+          All other live cells die in the next generation. Similarly, all other
+          dead cells stay dead.
+        </li>
+      </ol>
+    </div>
+    <div id="right">
+      <h1>Conway's Game of Life</h1>
+      <div id="grid"></div>
+      <button>Start</button>
+      <button>Clear</button>
+      <button>Randomise (Populate 30% of the grid)</button>
+    </div>
+    <script>
+      // Create the table element
+      let table = document.createElement("table");
 
+      // Use a for loop to create the rows
+      for (let i = 0; i < 35; i++) {
+        let row = document.createElement("tr");
+
+        // Use another for loop to create the columns (checkboxes)
+        for (let j = 0; j < 68; j++) {
+          let cell = document.createElement("td");
+          let checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+
+          // Append the checkbox to the cell, and the cell to the row
+          cell.append(checkbox);
+          row.append(cell);
+        }
+
+        // Append the row to the table
+        table.append(row);
+      }
+
+      // Append the table to the document
+      document.querySelector("#grid").append(table);
+    </script>
   </body>
 </html>
