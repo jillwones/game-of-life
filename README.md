@@ -10,3 +10,5 @@ The rules are as follows:
 * Any live cell with less than 2 live neighbours dies (underpopulation).
 * Any live cell with more than 3 live neighbours dies (overpopulation).
 * Any dead cell with exactly 3 neighbours becomes a live cell (reproduction).
+
+[Play the Game of Life](https://jillwones.github.io/game-of-life/)
